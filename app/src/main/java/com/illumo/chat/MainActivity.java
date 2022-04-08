@@ -23,8 +23,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RetrofitClient retrofitClient;
     private TextView errorLog;
+    private static User result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,25 +70,17 @@ public class MainActivity extends AppCompatActivity {
 
                 //
 
-                Call<LoginResult> call = retrofitClient.getInstance().getMyApi().executeLogin(map);
+                Call<User> call = RetrofitClient.getInstance().getMyApi().executeLogin(map);
 
-                call.enqueue(new Callback<LoginResult>() {
+                call.enqueue(new Callback<User>() {
                     @Override
-                    public void onResponse(Call<LoginResult> call, Response<LoginResult> response) {
+                    public void onResponse(Call<User> call, Response<User> response) {
 
                         if(response.isSuccessful())
                         {
-                            LoginResult loginResult = response.body();
+                            result = response.body();
 
-                            errorLog.setText("token: " + loginResult.getToken());
-
-                            AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-
-                            builder1.setTitle(loginResult.getName());
-                            builder1.setMessage(loginResult.getToken());
-
-                            builder1.show();
-
+                            GetAuthStatus(result.getToken());
                         }
                         else
                         {
@@ -98,14 +90,13 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<LoginResult> call, Throwable t) {
+                    public void onFailure(Call<User> call, Throwable t) {
 
                         Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
 
                     }
                 });
 
-                GetAuthStatus();
             }
         });
 
@@ -130,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 map.put("password", passwordEdit.getText().toString());
 
                 //
-                Call<Void> call = retrofitClient.getInstance().getMyApi().executeSignUp(map);
+                Call<Void> call = RetrofitClient.getInstance().getMyApi().executeSignUp(map);
 
                 call.enqueue(new Callback<Void>() {
                     @Override
@@ -156,32 +147,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void GetName()
+    public void GetUserById()
     {
-        Call<String> call = retrofitClient.getInstance().getMyApi().executeGetUserID("NnXYMMk4VFbbFXEEebWSt");
+        Call<User> call = RetrofitClient.getInstance().getMyApi().executeGetUserID("token=" + result.getToken(), "NnXYMMk4VFbbFXEEebWSt");
 
-        call.enqueue(new Callback<String>() {
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
+            public void onResponse(Call<User> call, Response<User> response) {
                 if(response.code() == 200)
                 {
-                    String map = "";
+                    User user = response.body();
 
-                    map = response.body();
-                    Toast.makeText(MainActivity.this, map , Toast.LENGTH_LONG).show();
-
-                    errorLog.setText(map.toString());
-
-//                    AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
-//
-//                    builder1.setTitle("");
-//                    builder1.setMessage("");
-//
-//                    builder1.show();
-
-//                    Intent intent = new Intent(MainActivity.this, ChatMain.class);
-//                    intent.putExtra("LoginResult", id);
-//                    startActivity(intent);
                 }
                 else if(response.code() == 401)
                 {
@@ -190,21 +166,25 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
 
             }
         });
     }
 
-    public void GetAuthStatus()
+    public void GetAuthStatus(String token)
     {
-        Call<Void> call = retrofitClient.getInstance().getMyApi().executeAuthCheck();
+        Call<Void> call = RetrofitClient.getInstance().getMyApi().executeAuthCheck("token=" + token);
 
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if(response.code() == 200){
                     Toast.makeText(MainActivity.this, "Ok", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(MainActivity.this, ChatMain.class);
+                    intent.putExtra("token", result.getToken());
+                    startActivity(intent);
                 }else if(response.code() == 401)
                 {
                     Toast.makeText(MainActivity.this, "Fail", Toast.LENGTH_LONG).show();

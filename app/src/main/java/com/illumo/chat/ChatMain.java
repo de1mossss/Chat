@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class ChatMain extends AppCompatActivity {
 
-    private String userid;
+    private String token;
     private TextView useridText;
 
     @Override
@@ -16,7 +16,7 @@ public class ChatMain extends AppCompatActivity {
         setContentView(R.layout.activity_chat_main);
 
         useridText = findViewById(R.id.userid);
-        userid = getIntent().getStringExtra("LoginResult");
-        useridText.setText(userid);
+        token = getIntent().getStringExtra("token");
+        useridText.setText(token);
     }
 }
