@@ -20,8 +20,8 @@ public interface RetrofitInterface {
     @POST("user")
     Call<Void> executeSignUp(@Body HashMap<String, String> map);
 
-    @GET("user/{id}")
-    Call<User> executeGetUserID(@Header("Cookie") String token, @Path("id") String id);
+    @GET("user")
+    Call<User> executeGetUserID(@Header("Cookie") String token);
 
     @GET("auth")
     Call<Void> executeAuthCheck(@Header("Cookie") String token);

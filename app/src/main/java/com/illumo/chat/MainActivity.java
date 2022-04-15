@@ -24,7 +24,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     private TextView errorLog;
-    private static User result;
+    protected static User result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void GetUserById()
     {
-        Call<User> call = RetrofitClient.getInstance().getMyApi().executeGetUserID("token=" + result.getToken(), "NnXYMMk4VFbbFXEEebWSt");
+        Call<User> call = RetrofitClient.getInstance().getMyApi().executeGetUserID("token=" + result.getToken());
 
         call.enqueue(new Callback<User>() {
             @Override

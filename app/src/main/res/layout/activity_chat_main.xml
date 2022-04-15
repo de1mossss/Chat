@@ -1,55 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/viewpager"
     tools:context=".ChatMain">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/userid"
-        android:layout_margin="8dp"
-        android:textSize="20dp"
-        android:text="123"
-        />
 
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:hint="Entre chat name"
-        android:layout_below="@+id/userid"
-        android:id="@+id/search"
-        android:layout_toLeftOf="@+id/searchbut"
-        />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="10dp"
-        android:layout_below="@+id/userid"
-        android:id="@+id/searchbut"
-        android:src="@drawable/ic_search"
-        app:tint="@color/white"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/search"
-        >
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/listofchats"
-            android:scrollbars="none"
-            />
-
-    </LinearLayout>
-
-</RelativeLayout>
+</androidx.viewpager.widget.ViewPager>
