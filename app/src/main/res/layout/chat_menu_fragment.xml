@@ -2,40 +2,54 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/columbiablue">
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_margin="8dp"
         android:hint="Entre chat name"
         android:id="@+id/search"
         android:layout_toLeftOf="@+id/searchbut"
+        android:background="@drawable/custom_edittext"
+
+        android:padding="10dp"
         />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentEnd="true"
-        android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
         android:id="@+id/searchbut"
         android:src="@drawable/ic_search"
-        app:tint="@color/white"
+        app:tint="@color/blue"
+        android:background="@drawable/custom_edittext"
         />
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/search"
-        >
+        tools:listitem="@layout/recyclerview_chats"
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/listofchats"
-            android:scrollbars="none"
-            />
+        />
 
-    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/newChatBut"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_plus"
+        android:backgroundTint="@color/purple_500"
+        app:borderWidth="0dp"
+        app:tint="#FFFFFFFF"
+        />
 
 </RelativeLayout>

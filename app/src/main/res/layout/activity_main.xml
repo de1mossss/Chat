@@ -4,34 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/columbiablue"
+    >
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/login"
-        android:text="Login"
-        android:layout_centerInParent="true"
-        />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/signup"
-        android:text="Sign up"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/login"
-        />
-
-    <TextView
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/signup"
-        android:layout_marginTop="10dp"
-        android:layout_margin="10dp"
-        android:id="@+id/errorlog"
+        android:layout_height="match_parent" >
+    </FrameLayout>
 
-
-        />
 
 </RelativeLayout>

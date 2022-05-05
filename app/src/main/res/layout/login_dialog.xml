@@ -1,32 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:context=".MainActivity"
+    android:background="@color/columbiablue"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:hint="Enter email"
         android:id="@+id/emailEdit"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/custom_edittext"
+        android:hint="Enter nickname"
+        android:padding="10dp" />
 
     <EditText
         android:id="@+id/passwordEdit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/custom_edittext"
         android:hint="Enter password"
         android:inputType="textPassword"
-        />
+        android:padding="10dp" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Login"
-        android:id="@+id/login"
-        />
+        android:layout_below="@+id/passwordEdit"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/custom_edittext"
+            android:text="Login" />
+
+        <Button
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/custom_edittext"
+            android:text="Sign up"
+            android:tint="@color/blue" />
+    </LinearLayout>
 
 </LinearLayout>

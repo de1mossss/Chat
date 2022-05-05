@@ -2,31 +2,68 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/columbiablue"
+    android:gravity="center"
+    >
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:hint="Enter name"
         android:id="@+id/nameEdit"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/custom_edittext"
+        android:hint="Enter nickname"
+        android:padding="10dp" />
 
     <EditText
+        android:id="@+id/passwordEdit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/custom_edittext"
+        android:hint="Enter password"
+        android:inputType="textPassword"
+        android:padding="10dp" />
+    <EditText
+        android:id="@+id/passwordEditCheck"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/custom_edittext"
+        android:hint="Enter password"
+        android:inputType="textPassword"
+        android:padding="10dp" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:hint="Enter password"
-        android:id="@+id/passwordEdit"
-        android:inputType="textPassword"
-        />
+        android:gravity="center">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Sign up"
-        android:id="@+id/signup"
-        />
+        <Button
+            android:id="@+id/signup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/custom_edittext"
+            android:text="Sign up"
+            android:tint="@color/blue" />
+
+        <Button
+            android:id="@+id/login1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/custom_edittext"
+            android:text="Back to Login"
+            android:tint="@color/blue" />
+    </LinearLayout>
 
 </LinearLayout>

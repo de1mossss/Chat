@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class Fragment_1 extends Fragment {
+public class Fragment_3_CreateChat extends Fragment {
 
-    public Fragment_1()
+    public Fragment_3_CreateChat()
     {
 
     }
@@ -19,13 +19,9 @@ public class Fragment_1 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.chat_menu_fragment, container, false);
+        View view = inflater.inflate(R.layout.newchat_layout, container, false);
+
         return view;
-    }
-
-    void GetCurrentUser()
-    {
-
     }
 
 }

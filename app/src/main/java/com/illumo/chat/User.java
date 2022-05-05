@@ -8,13 +8,28 @@ public class User {
     private String id;
     @SerializedName("createdAt")
     private String createdAt;
+
     @SerializedName("nickname")
     private String nickname;
     @SerializedName("token")
     private String token;
 
+    private Boolean isChecked = false;
+
+    public Boolean getChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(Boolean checked) {
+        isChecked = checked;
+    }
+
     public String getToken() {
         return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getId() {
